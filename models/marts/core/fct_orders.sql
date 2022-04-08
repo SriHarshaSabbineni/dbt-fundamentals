@@ -10,7 +10,8 @@ final as (
     select
         orders.order_id,
         orders.customer_id,
-        payments.amount
+        payments.amount,
+        payments.status
     from orders
     inner join payments using (order_id)
 )

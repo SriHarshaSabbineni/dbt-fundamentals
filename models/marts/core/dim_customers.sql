@@ -32,7 +32,7 @@ customer_orders as (
 totals as(
     select
         customer_id,
-        sum(amount) as lifetime_value
+        sum(case when status = 'success' then amount end) as lifetime_value
     from fct_orders
     group by customer_id
 ),
