@@ -3,7 +3,7 @@ with payments as (
         orderid as order_id,
         status,
         amount
-    from raw.stripe.payment
+    from {{source('stripe','payment')}}
 )
 
 select * from payments
